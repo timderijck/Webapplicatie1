@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
 }
@@ -155,7 +155,6 @@ header {
 .inhoudtekst {
     font-family: "Libre Caslon Text";
     font-size: 20px;
-    padding: 20px;
 }
 
 .voorgerechtenhoofdtekst {
@@ -172,7 +171,9 @@ header {
     opacity: 60%;
     position: relative;
     bottom: 100px;
-    left: 180px;
+    left: 185px;
+    padding-left: 30px;
+    padding-top: 10px;
 }
 
 .categorieblokje {
@@ -184,4 +185,101 @@ header {
     bottom: 210px;
     display: flex;
     justify-content: center;
+}
+
+.searchbar {
+    display: flex;
+    flex-direction: row;
+}
+
+.searchbarcontainer {
+    font-family: 'Libre Caslon Text';
+    border-radius: 40px;
+    height: 200px;
+    width: 200px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 310px;
+    position: relative;
+    bottom: 15px;
+}
+
+.searchbarcontainer input {
+    background-color: #0E8B4E;
+    border-style: solid;
+    border-width: 0px;
+    border-color: #ffffff;
+    border-radius: 90px;
+    color: #ffffff;
+    font-family: 'Libre Caslon Text';
+    font-size: 20px;
+    width: 220px;
+    height: 50px;
+    position: relative;
+    left: 15px;
+    display: flex;
+    text-align: center;
+}
+
+.searchbarcontainer2 {
+    font-family: 'Libre Caslon Text';
+    border-radius: 40px;
+    height: 200px;
+    width: 200px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 310px;
+    position: relative;
+    bottom: 15px;
+}
+
+.searchbarcontainer2 input {
+    background-color: #0E8B4E;
+    border-style: solid;
+    border-width: 0px;
+    border-color: #ffffff;
+    border-radius: 90px;
+    color: #ffffff;
+    font-family: 'Libre Caslon Text';
+    font-size: 20px;
+    width: 90px;
+    height: 50px;
+    position: relative;
+    left: 15px;
+    display: flex;
+    text-align: center;
+}
+
+::placeholder {
+    color: #484646;
+}
+
+.kleineruimtesearch {
+    position: relative;
+    left: 20px;
+}
+
+.kleinwitborder2 {
+    background-color: white;
+    height: 68px;
+    width: 250px;
+    border-radius: 90px;
+}
+
+.kleinwitborder3 {
+    background-color: white;
+    height: 68px;
+    width: 120px;
+    border-radius: 90px;
+}
+
+.kleingroenborder2 {
+    background-color: #0E8B4E;
+    height: 49px;
+    width: 49px;
+    border-radius: 90px;
 }

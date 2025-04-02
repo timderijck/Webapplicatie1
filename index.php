@@ -22,7 +22,16 @@ include("./dbcalls/read.php");
             <img src="assets/img/logo.png" alt="logo" height="125" width="129">
         </div>
         <div class="locatietekst">
-            <h1>Heyendaalseweg 98, Nijmegen</h1>
+            <form action="./dbcalls/search.php" method="GET">
+                <div class="searchbar">
+                    <div class="searchbarcontainer kleinwitborder2">
+                        <input type="text" name="searchresult" placeholder="Jouw gerecht:" id="zoekbalk" />
+                    </div>
+                    <div class="searchbarcontainer2 kleinwitborder3 kleineruimtesearch">
+                        <input type="submit" value="Zoeken" id="zoekknop"/>
+                    </div>
+                </div>
+            </form>
         </div>
         <div class="witborder contactposition">
             <div class="groenborder groenposition">
@@ -52,10 +61,6 @@ include("./dbcalls/read.php");
                 </div>
             </div>
         </div>
-        <form action="./dbcalls/search.php" method="GET">
-            <input type="text" name="searchresult" />
-            <input type="submit" value="Zoeken" />
-        </form>
     </header>
     <main>
         <div class="categorieblokje">
@@ -63,19 +68,23 @@ include("./dbcalls/read.php");
             <div class="voorgerechtenhoofdtekst categorietekst">
                 Voorgerechten
             </div>
+            <div class="voorgerechten">
 
             <?php
             //voorgerechten
             foreach ($result as $key => $value) {
-                echo '<ul class="voorgerechten inhoudtekst">';
+                echo '<ul class="inhoudtekst">';
                 echo '<li>' . $value['productnaam'];
-                echo ' ' .  '(€' . $value['prijs'] . ')' . '</li>';
+                echo ' ' . '(€' . $value['prijs'] . ')' . '</li>';
+                echo '<form action="./dbcalls/delete.php" method="post">';
+                echo '<input type="hidden" name="ID" value="' . $value['ID'] . '">';
+                echo '</form>';
                 echo '</ul>';
             }
-            ?>
-
+                ?>
+            </div>
         </div>
-            
+
         <div class="categorieblokje">
             <img src="assets/img/categorie.png" alt="cat" height="350" width="750">
             <div class="pizzastekst categorietekst">
