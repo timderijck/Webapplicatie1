@@ -6,7 +6,7 @@ include ('./conn.php');
 $product = $_POST['gerecht'];
 echo 'dit is mijn productnaam: ' .$product.' <<<<<';
 // Het create request
-$sql = 'INSERT INTO menuitems(Productnaam) VALUES (:product);';
+$sql = 'INSERT INTO menuitems, pizzas, pastas(Productnaam) VALUES (:product);';
 
 $stmt = $conn->prepare(query: $sql);
 $stmt->bindParam(param: ":product", var: $product);

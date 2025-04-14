@@ -3,6 +3,7 @@
 include("./dbcalls/conn.php");
 include("./dbcalls/read.php");
 
+
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +29,7 @@ include("./dbcalls/read.php");
                         <input type="text" name="searchresult" placeholder="Jouw gerecht:" id="zoekbalk" />
                     </div>
                     <div class="searchbarcontainer2 kleinwitborder3 kleineruimtesearch">
-                        <input type="submit" value="Zoeken" id="zoekknop"/>
+                        <input type="submit" value="Zoeken" id="zoekknop" />
                     </div>
                 </div>
             </form>
@@ -56,39 +57,75 @@ include("./dbcalls/read.php");
         </div>
         <div class="kleinwitborder positionkleinbolletje1 naarrechts1">
             <div class="kleingroenborder positionkleinbolletje2 naarrechts2">
-                <div class="winkelwagen naarrechts3">
-                    <img src="assets/img/home.png" alt="home" height="35" width="35">
-                </div>
+                <ul class="winkelwagen naarrechts3">
+                    <a href="index.php">
+                        <img src="assets/img/home.png" alt="home" height="35" width="35">
+                    </a>
+                </ul>
             </div>
         </div>
     </header>
     <main>
         <div class="categorieblokje">
-            <img src="assets/img/categorie.png" alt="cat" height="350" width="750">
             <div class="voorgerechtenhoofdtekst categorietekst">
                 Voorgerechten
             </div>
             <div class="voorgerechten">
 
-            <?php
-            //voorgerechten
-            foreach ($result as $key => $value) {
-                echo '<ul class="inhoudtekst">';
-                echo '<li>' . $value['productnaam'];
-                echo ' ' . '(€' . $value['prijs'] . ')' . '</li>';
-                echo '<form action="./dbcalls/delete.php" method="post">';
-                echo '<input type="hidden" name="ID" value="' . $value['ID'] . '">';
-                echo '</form>';
-                echo '</ul>';
-            }
+                <?php
+                //voorgerechten
+                foreach ($voorgerechten as $value) {
+                    echo '<ul class="inhoudtekst">';
+                    echo '<li>' . $value['productnaam'] . ' (€' . $value['prijs'] . ')</li>';
+                    echo '<form action="./dbcalls/delete.php" method="post">';
+                    echo '<input type="hidden" name="ID" value="' . $value['ID'] . '">';
+                    echo '</form>';
+                    echo '</ul>';
+                }
                 ?>
             </div>
         </div>
+        <!-- flex met een juiste grootte flex direction: column/Row-->
+        <div class="categorieblokje1">
+            <div class="pizzaafbeeldingen">
+                <img src="assets/img/categorie.png" alt="cat" height="350" width="750">
+                <img src="assets/img/categorie.png" alt="cat" height="350" width="750">
+            </div>
 
-        <div class="categorieblokje">
+            <div class="pizzacontent">
+                <div class="pizzastekst categorietekst">Pizza's</div>
+                <div class="pizza">
+                    <?php
+                    foreach ($pizzas as $value) {
+                        echo '<ul class="inhoudtekst">';
+                        echo '<li>' . $value['productnaam'] . ' (€' . $value['prijs'] . ')</li>';
+                        echo '<form action="./dbcalls/delete.php" method="post">';
+                        echo '<input type="hidden" name="ID" value="' . $value['ID'] . '">';
+                        echo '</form>';
+                        echo '</ul>';
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
+        <div class="pastasblokje">
             <img src="assets/img/categorie.png" alt="cat" height="350" width="750">
-            <div class="pizzastekst categorietekst">
-                Pizza's
+            <div class="pastashoofdtekst categorietekst">
+                Pasta's
+            </div>
+            <div class="pasta">
+
+                <?php
+                //voorgerechten
+                foreach ($pastas as $value) {
+                    echo '<ul class="inhoudtekst">';
+                    echo '<li>' . $value['productnaam'] . ' (€' . $value['prijs'] . ')</li>';
+                    echo '<form action="./dbcalls/delete.php" method="post">';
+                    echo '<input type="hidden" name="ID" value="' . $value['ID'] . '">';
+                    echo '</form>';
+                    echo '</ul>';
+                }
+                ?>
             </div>
         </div>
     </main>

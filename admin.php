@@ -1,7 +1,9 @@
 <?php
 
-if (isset($_SESSION['username']));
+if (!isset($_SESSION['username']));
 {
+    header("location: ./index.php");
+}
 
 
 ?>
@@ -76,12 +78,3 @@ if (isset($_SESSION['username']));
 
 </html>
 
-<?php
-
-        }
-        else{
-            header("location: ../index.php");
-        }
-
-
-?>
