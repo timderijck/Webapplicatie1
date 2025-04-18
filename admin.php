@@ -1,12 +1,16 @@
 <?php
+session_start();
 
-if (!isset($_SESSION['username']));
-{
-    header("location: ./index.php");
+if (!isset($_SESSION['username'])) {
+    header("Location: ./login.php");
+    exit();
 }
-
-
 ?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,19 +50,19 @@ if (!isset($_SESSION['username']));
             include('./dbcalls/read.php');
 
 
-            //Het loopen van de database gegevens
             foreach ($result as $value) {
 
                 ?>
                 <form action="./dbcalls/update.php" method="post">
-                    <input type="text" name="productnaam" id="" value="<?php echo $value['Productnaam']; ?>">
-                    <input type="text" name="Prijs" id="" value="<?php echo $value['Prijs']; ?>">
-                    <input type="text" name="img" id="" value="<?php echo $value['img']; ?>">
+                    <input type="text" name="productnaam" value="<?= $value['Productnaam'] ?? '' ?>">
+                    <input type="text" name="Prijs" value="<?= $value['Prijs'] ?? '' ?>">
+                    <input type="text" name="img" value="<?= $value['img'] ?? '' ?>">
+
                     <button type="submit">Update</button>
                 </form>
                 <?php
 
-              
+
                 echo '<form action="./dbcalls/delete.php" method="post">';
                 echo '<input type="hidden" name="ID" value="' . $value['ID'] . '">';
                 echo '<input type="submit" name="" value="delete" > ';
@@ -77,4 +81,3 @@ if (!isset($_SESSION['username']));
 </body>
 
 </html>
-
